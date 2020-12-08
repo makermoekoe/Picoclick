@@ -24,6 +24,8 @@ Here are some specs of the Picoclick:
 
 <img src="docs/pico_usbc.JPG" width="450px"></a>
 
+For battery info, check my [website](https://makermoekoe.com/2020/12/08/picoclick/).
+
 
 ## GPIOs
 
