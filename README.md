@@ -4,7 +4,8 @@
 
 (Click on the image for a small video.)
 
-People who follow my on Instagram already knew what I have worked on several months now with tons of PCB iterations... The Picoclick is a simple IOT-Button in a very small package. The dimensions of the PCB are only 18x20mm and the height with a 300909 battery is only about 10mm. It is able to connect to your local WiFi at an amazingly high speed of about 1.5 seconds in average. Yes, as it calls IOT-Button, it uses WiFi of course! That enables tons of possibilities for that little device. The original idea behind it was to control my local lights, outlets and radiators through a single button press - or two, or a button hold, ... As the Picoclick **doesn't use deepsleep** it enables many possible button combination, because the button isn't connected to the reset line of the MCU, like it is mainly done on such devices (even on my own old dashbuttons...). Nevertheless, the Picoclick can be used somewhere else of course! I have successfully integrated it into MQTT and IFTTT, but it can be used to control everything which has at least a WiFi connection. Additionally it has four external GPIOs which can be used to control things and read sensors for other projects. BTW. the Picoclick can be flashed with that sexy USB-C jack, because it has an onboard CP2102N USB-Serial bridge.
+People who follow my Instagram already knew what I have worked on several months now with tons of PCB iterations... But now it's done!
+The Picoclick is a simple IOT-Button in a very small package. The dimensions of the PCB are only 18x20mm and the height with a 300909 battery is only about 10mm. It is able to connect to your local WiFi at an amazingly high speed of about 1.5 seconds in average. Yes, as it calls IOT-Button, it uses WiFi of course! That enables tons of possibilities for that little device. The original idea behind it was to control my local lights, outlets and radiators in my smart home through a single button press - or two, or a button hold, ... As the Picoclick **doesn't use deepsleep** it enables many possible button combinations, because the button isn't connected to the reset line of the MCU, like it is mainly done on such devices (even on my own old dashbuttons...). Nevertheless, the Picoclick can be used somewhere else of course! I have successfully integrated it into MQTT and IFTTT, but it can be used to control everything which has at least a WiFi connection. Additionally it has four external GPIOs which can be used to control things and read sensors for other projects. BTW. the Picoclick can be flashed with that sexy USB-C jack, because it has an onboard CP2102N USB-Serial bridge.
 
 Here are some specs of the Picoclick:
 - “Pico” size: 18.0×20.0mm board outline
@@ -71,6 +72,14 @@ pinMode(status_charger,INPUT_PULLUP);
 int status = digitalWrite(status_charger);
 ```
 Where ```status_charger```is the GPIO4. The ```status```variable will hold the status. It returns 0 when the battery is charging through the USB port. It returns 1 if the battery is fully charged.
+
+### Fast WiFi connection
+To enable a really fast WiFi connection you have to put your local access point into a fixed WiFi channel. In doing so, the Picoclick is able to know that channel which saves around a second while connecting to the AP. Another thing is the BSSID, which can be found on your access points settings. Just enter your local IP into your favorite internet browser and find that terrifying number somewhere. Add that settings to the following lines of code:
+
+```
+const uint8_t bssid[6] = {0x80, 0x71, 0x7A, 0x3F, 0x8B, 0x63}; //put your access points bssid here
+const int wifi_channel = 9; //set the channel in your access points settings
+```
 
 I have attached three simple examples in the code folder of this repo. A bare_minimum sketch with just a simple led animation, an mqtt example and an IFTTT example.
 

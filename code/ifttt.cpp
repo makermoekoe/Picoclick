@@ -25,7 +25,7 @@ const int wifi_channel = 9; //set the channel in your access points settings
 // IFTTT setup
 //const char *host = "maker.ifttt.com";
 const char *host = "100.24.23.248";
-const char *privateKey = "dRQDpLu7pFqqWtHEnvT2yg";
+const char *privateKey = "XXXX";
 
 #define LIPO_MINIMAL 3200
 
