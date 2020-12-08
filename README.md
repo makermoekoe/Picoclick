@@ -17,21 +17,21 @@ Here are some specs of the Picoclick:
 - A 30mAh (9x9x3mm pouch cell) battery is enough to reaches over 350 clicks.
 - Ultra low stand-by current
 
-<img src="docs/pico_back.png" width="300px"></a>
+<img src="docs/pico_back.JPG" width="300px"></a>
 
-<img src="docs/pico_front.png" width="300px"></a>
+<img src="docs/pico_front.JPG" width="300px"></a>
 
-<img src="docs/pico_usbc.png" width="300px"></a>
+<img src="docs/pico_usbc.JPG" width="300px"></a>
 
 
 ## GPIOs
 
 Function | GPIO | Mode
 -------- | -------- | --------
-WS2812   | GPIO14   | Output
-Button   | GPIO12   | Input
-Latch*   | GPIO13   | Output
-CHG Status | GPIO4  | Input
+WS2812 Din | GPIO14   | Output
+Button | GPIO12   | Input
+Latch* | GPIO13   | Output
+Charge Stat. | GPIO4  | Input
 Ext IO1  |  GPIO6   | IO
 Ext IO2  |  GPIO7   | IO
 Ext IO3  |  GPIO8   | IO
@@ -39,6 +39,40 @@ Ext IO4  |  GPIO10  | IO
 
 *The Picoclick doesn't use the deepsleep functionality of the MCU, because it uses too much power. It comes with its own power latching circuit. The MCU can control its own power with the latch pin. Once it is held high the ESP8285 will get power and as soon as it is pulled low the ESP8285 will shut down. Easy peasy...
 
+## Circuit
+
+The circuit is based on the following components:
+- MCU ESP8285 with external 24MHz oscillator and external Rainsun AN2051 chip antenna
+- CP2102N USB-Serial bridge with autoreset circuit based on the MUN5214DW1T1G dual transistor
+- RT9193 3,3v voltage regulator
+- LiPo charger BRCL4054BME (MCP73831 alternative, pin compatible)
+- XB5353A LiPo protection with SEU7401U reverse polarity protection, power measurement via voltage divider
+- power latching circuit based on 4148 SOD523 diodes
+- WS2812 2020 mini RGB LEDs
+
+## Code
+
+You can just run every code that you have in your mind, just make sure that the Picoclick needs to be powered in one of the following two ways:
+- button press
+- latching pin
+So please keep in mind that it will shut down if you release the button and doesn't pull the latch pin high. Typically you have to call following two lines of code at first.
+```
+pinMode(latch,OUTPUT);
+digitalWrite(latch,HIGH);
+```
+To turn the Picoclick off, you have to call:
+```
+digitalWrite(latch,LOW);
+```
+
+The charge status GPIO can be used to read the state of the onboard LiPo charger. Use the following code first to enable this feature:
+```
+pinMode(status_mcp,INPUT_PULLUP);
+int state = digitalWrite(status_mcp);
+```
+Where ```status_map```is the GPIO4. The ```state```variable will hold the status. It returns 0 when the battery is charging through the USB port. It returns 1 if the battery is fully charged.
+
+I have attached three simple examples in the code folder of this repo. A bare_minimum sketch with just a simple led animation, an mqtt example and an IFTTT example.
 
 If you still have questions then feel free to ask!
 
