@@ -24,6 +24,22 @@ Here are some specs of the Picoclick:
 <img src="docs/pico_usbc.png" width="300px"></a>
 
 
+## GPIOs
+
+Function | GPIO | Mode
+-------- | -------- | --------
+WS2812   | GPIO14   | Output
+Button   | GPIO12   | Input
+Latch*   | GPIO13   | Output
+CHG Status | GPIO4  | Input
+Ext IO1  |  GPIO6   | IO
+Ext IO2  |  GPIO7   | IO
+Ext IO3  |  GPIO8   | IO
+Ext IO4  |  GPIO10  | IO
+
+*The Picoclick doesn't use the deepsleep functionality of the MCU, because it uses too much power. It comes with its own power latching circuit. The MCU can control its own power with the latch pin. Once it is held high the ESP8285 will get power and as soon as it is pulled low the ESP8285 will shut down. Easy peasy...
+
+
 If you still have questions then feel free to ask!
 
 Have fun! :)
