@@ -46,7 +46,7 @@ The circuit is based on the following components:
 - CP2102N USB-Serial bridge with autoreset circuit based on the MUN5214DW1T1G dual transistor
 - RT9193 3,3v voltage regulator
 - LiPo charger BRCL4054BME (MCP73831 alternative, pin compatible)
-- XB5353A LiPo protection with SEU7401U reverse polarity protection, power measurement via voltage divider
+- XB5353A LiPo protection with SEU7401U reverse polarity protection; power measurement via voltage divider
 - power latching circuit based on 4148 SOD523 diodes
 - WS2812 2020 mini RGB LEDs
 
