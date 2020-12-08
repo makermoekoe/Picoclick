@@ -1,6 +1,6 @@
 # Picoclick
 
-<a href="https://www.instagram.com/p/CIODN2rq7Tt/?utm_source=ig_web_button_share_sheet"><img src="docs/pico_coin.JPG" width="300px"></a>
+<a href="https://www.instagram.com/p/CEPDfjlKE4K/?utm_source=ig_web_button_share_sheet"><img src="docs/pico_coin.JPG" width="450px"></a>
 
 (Click on the image for a small video.)
 
@@ -17,11 +17,11 @@ Here are some specs of the Picoclick:
 - A 30mAh (9x9x3mm pouch cell) battery is enough to reaches over 350 clicks.
 - Ultra low stand-by current
 
-<img src="docs/pico_back.JPG" width="300px"></a>
+<img src="docs/pico_back.JPG" width="450px"></a>
 
-<img src="docs/pico_front.JPG" width="300px"></a>
+<img src="docs/pico_front.JPG" width="450px"></a>
 
-<img src="docs/pico_usbc.JPG" width="300px"></a>
+<img src="docs/pico_usbc.JPG" width="450px"></a>
 
 
 ## GPIOs
@@ -67,10 +67,10 @@ digitalWrite(latch,LOW);
 
 The charge status GPIO can be used to read the state of the onboard LiPo charger. Use the following code first to enable this feature:
 ```
-pinMode(status_mcp,INPUT_PULLUP);
-int state = digitalWrite(status_mcp);
+pinMode(status_charger,INPUT_PULLUP);
+int status = digitalWrite(status_charger);
 ```
-Where ```status_map```is the GPIO4. The ```state```variable will hold the status. It returns 0 when the battery is charging through the USB port. It returns 1 if the battery is fully charged.
+Where ```status_charger```is the GPIO4. The ```status```variable will hold the status. It returns 0 when the battery is charging through the USB port. It returns 1 if the battery is fully charged.
 
 I have attached three simple examples in the code folder of this repo. A bare_minimum sketch with just a simple led animation, an mqtt example and an IFTTT example.
 
