@@ -71,7 +71,7 @@ digitalWrite(latch,LOW);
 The charge status GPIO can be used to read the state of the onboard LiPo charger. Use the following code first to enable this feature:
 ```
 pinMode(status_charger,INPUT_PULLUP);
-int status = digitalWrite(status_charger);
+int status = digitalRead(status_charger);
 ```
 Where ```status_charger```is the GPIO4. The ```status```variable will hold the status. It returns 0 when the battery is charging through the USB port. It returns 1 if the battery is fully charged.
 
