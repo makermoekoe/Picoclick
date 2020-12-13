@@ -14,7 +14,7 @@ Here are some specs of the Picoclick:
 - ESP8285 MCU board (behaves like the ESP8266, just a little less memory)
 - Four external GPIOs (as solder pads)
 - Fully integrated LiPo charging solution with a great protection circuit (including Over(dis)charge, reverse polarity, short circuit protection and more)
-- Chargind and programming via the USB Type-C jack (integrated CP2102N USB-Serial bridge)
+- Charging and programming via the USB Type-C jack (integrated CP2102N USB-Serial bridge)
 - A 30mAh (9x9x3mm pouch cell) battery is enough to reaches over 350 clicks.
 - Ultra low stand-by current
 
@@ -71,7 +71,7 @@ digitalWrite(latch,LOW);
 The charge status GPIO can be used to read the state of the onboard LiPo charger. Use the following code first to enable this feature:
 ```
 pinMode(status_charger,INPUT_PULLUP);
-int status = digitalWrite(status_charger);
+int status = digitalRead(status_charger);
 ```
 Where ```status_charger```is the GPIO4. The ```status```variable will hold the status. It returns 0 when the battery is charging through the USB port. It returns 1 if the battery is fully charged.
 
