@@ -85,6 +85,8 @@ const int wifi_channel = 9; //set the channel in your access points settings
 
 I have attached three simple examples in the code folder of this repo. A bare_minimum sketch with just a simple led animation, an mqtt example and an IFTTT example.
 
+Update 13.12.2020: I have added the buttonpress_counter.cpp for interrupt counting the button presses. This can be used for several application. Next is to add the button hold functionality, but that shouldn't be a problem.
+
 If you still have questions then feel free to ask!
 
 Have fun! :)
