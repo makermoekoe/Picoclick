@@ -58,6 +58,7 @@ The circuit is based on the following components:
 You can just run every code that you have in your mind, just make sure that the Picoclick needs to be powered in one of the following two ways:
 - button press
 - latching pin
+
 So please keep in mind that it will shut down if you release the button and doesn't pull the latch pin high. Typically you have to call following two lines of code at first.
 ```
 pinMode(latch,OUTPUT);
