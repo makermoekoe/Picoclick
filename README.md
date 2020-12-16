@@ -99,6 +99,7 @@ Once you have everything installed correctly, you should see the PIO Home screen
 - Name: Picoclick (just a name)
 - Board: Generic ESP8285 Module (Espressif) (you can just search for esp8285, because searching it manually would take an hour...)
 - Framework: Arduino (default)
+
 Afterwards you got a new project in your workspace which contains two important files. The ```main.cpp``` and the ```platform.ini```. The ```main.cpp``` file contains the code (which you can found in this repo) and the ```platform.ini``` file contains informations about the board, usb upload port, monitor speed and everything which you could possibly set. The minimum platform.ini file should look like this for all the Picoclick sketches:
 ```
 [env:esp8285]
