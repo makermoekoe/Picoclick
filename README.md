@@ -88,7 +88,7 @@ I have attached three simple examples in the code folder of this repo. A bare_mi
 
 Update 13.12.2020: I have added the buttonpress_counter.cpp for interrupt counting the button presses. This can be used for several application. Next is to add the button hold functionality, but that shouldn't be a problem.
 
-##Uploading code with PlatformIO
+## Uploading code with PlatformIO
 As my favorite IDE is PlatformIO I will show you an easy way on how to setup your Picoclick there. Nevertheless all this is possible in the Arduino IDE as well.
 
 PlatformIO has the great advantage that it has plenty of boards available in the base version. So you don't have to install the ESP8266 board separately, like it is done in the Arduino IDE.
