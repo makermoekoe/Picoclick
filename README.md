@@ -88,6 +88,32 @@ I have attached three simple examples in the code folder of this repo. A bare_mi
 
 Update 13.12.2020: I have added the buttonpress_counter.cpp for interrupt counting the button presses. This can be used for several application. Next is to add the button hold functionality, but that shouldn't be a problem.
 
-If you still have questions then feel free to ask!
+##Uploading code with PlatformIO
+As my favorite IDE is PlatformIO I will show you an easy way on how to setup your Picoclick there. Nevertheless all this is possible in the Arduino IDE as well.
+
+PlatformIO has the great advantage that it has plenty of boards available in the base version. So you don't have to install the ESP8266 board separately, like it is done in the Arduino IDE.
+Actually, PlatformIO is just a plugin for VisualStudio Code which can be downloaded here: https://platformio.org/install/ide?install=vscode
+Inside the VSCode you can install the plugin afterwards. The link has a great and detailed description on how to proceed.
+
+Once you have everything installed correctly, you should see the PIO Home screen after restarting VSCode. Now you can open an existing project or just create a new one. When creating a new one then select the following options:
+- Name: Picoclick (just a name)
+- Board: Generic ESP8285 Module (Espressif) (you can just search for esp8285, because searching it manually would take an hour...)
+- Framework: Arduino (default)
+Afterwards you got a new project in your workspace which contains two important files. The ```main.cpp``` and the ```platform.ini```. The ```main.cpp``` file contains the code (which you can found in this repo) and the ```platform.ini``` file contains informations about the board, usb upload port, monitor speed and everything which you could possibly set. The minimum platform.ini file should look like this for all the Picoclick sketches:
+```
+[env:esp8285]
+platform = espressif8266
+board = esp8285
+framework = arduino
+
+upload_speed = 460800
+upload_port = /dev/cu.usbserial-1410
+monitor_speed = 115200
+upload_resetmethod = nodemcu
+```
+The only thing you have to change is the ```upload_port```. You can spot the right one in your PIO Home screen in the Devices tab. Once you're done you can perform several actions in the bottom left corner of VSCode: compile, upload, serial monitor, ...
+
+While uploading a sketch to the Picoclick you have to press and hold the button of it during the complete uploading process. It should automatically reboot and start your code. The button can be released afterwards.
+
 
 Have fun! :)
