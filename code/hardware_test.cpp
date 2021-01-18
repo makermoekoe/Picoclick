@@ -1,16 +1,16 @@
 /**
- * read button as interrupt for the Picoclick v2.2
+ * hardware test for the Picoclick v2.2
  * 
- * This sketch counts button presses and flashes the LEDs as often as the button was pressed.
- * For interrupt use of ESP8266, ESP8285 and ESP32 you have to call: #define ISR_PREFIX ICACHE_RAM_ATTR 
- * https://github.com/platformio/platform-espressif8266/issues/160
+ * This sketch checks if all colors of the WS2812 LEDs are working and if the WiFi is enable to scane for SSIDs. 
+ * It visualizes the number of SSIDs found with blinking all LEDs green.
+ * Once the LED color cycle has started the Picoclick will shut off by a button press or after beeing on for 16 seconds.
  * 
  * The Picoclick can power itself by holding the latch pin high.
  * Pulling the latch to ground will switch it off.
  * 
  * Use WiFi.mode(WIFI_OFF) & WiFi.forceSleepBegin() in the setup for power saving when you don't wanna use WiFi.
  * 
- * 12.12.2020 by @maker.moekoe (Moritz König)
+ * 17.12.2020 by @maker.moekoe (Moritz König)
  * 
  */
 

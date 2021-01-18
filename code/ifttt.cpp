@@ -1,7 +1,7 @@
 /**
  * mqtt example for the Picoclick v2.2
  * 
- * This sketch publishes a simple mqtt message by a single button press.
+ * This sketch activates an IFTTT.
  * 
  * The Picoclick can power itself by holding the latch pin high.
  * Pulling the latch to ground will switch it off.
