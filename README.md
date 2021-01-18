@@ -89,6 +89,9 @@ I have attached three simple examples in the code folder of this repo. A bare_mi
 Update 13.12.2020: I have added the buttonpress_counter.cpp for interrupt counting the button presses. This can be used for several application. Next is to add the button hold functionality, but that shouldn't be a problem.
 
 ## Uploading code with PlatformIO
+
+Before starting: The Picoclick has to be connected to an external power supply via those pads on the bottom of the PCB. They are labeled as + and -. The voltage should be between 3.5 volts and 6 volts. Without power supply, the Picoclick won't be recognized by your computer.
+
 As my favorite IDE is PlatformIO I will show you an easy way on how to setup your Picoclick there. Nevertheless all this is possible in the Arduino IDE as well.
 
 PlatformIO has the great advantage that it has plenty of boards available in the base version. So you don't have to install the ESP8266 board separately, like it is done in the Arduino IDE.
@@ -116,5 +119,19 @@ The only thing you have to change is the ```upload_port```. You can spot the rig
 
 While uploading a sketch to the Picoclick you have to press and hold the button of it during the complete uploading process. It should automatically reboot and start your code. The button can be released afterwards.
 
+## External GPIO's
+The Picoclick has four external GPIO's (GPIO6, GPIO7, GPIO8, GPIO10) which are labeled as IO's. These can be both inputs or outputs. The other pads on the top side of the Picoclick (button side) are power supply pads, which can be used like this:
+
+Label | Description
+-------- | --------
+VU | USB voltage (5 volt)
+V1 | 3.3 volt
+V2 | 3.3 volt
+G1 | GND
+G2 | GND
+
+An overview of the external pads is given below.
+
+<img src="docs/top_pcb.png" width="450px"></a>
 
 Have fun! :)
