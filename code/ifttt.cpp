@@ -85,7 +85,7 @@ void send_event(const char *event) {
 }
 
 int getBatteryVoltage() {
-  float factor = 10.49; // (R1+R2)/R2, +/- X
+  float factor = 5; // (R1+R2)/R2, +/- X
   return (float(analogRead(0)) / 1023.0 * factor) * 1000.0; //returns mV
 }
 
