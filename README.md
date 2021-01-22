@@ -115,7 +115,7 @@ upload_port = /dev/cu.usbserial-1410
 monitor_speed = 115200
 upload_resetmethod = nodemcu
 ```
-The only thing you have to change is the ```upload_port```. You can spot the right one in your PIO Home screen in the Devices tab. Once you're done you can perform several actions in the bottom left corner of VSCode: compile, upload, serial monitor, ...
+The only thing you have to change is the `upload_port`. You can spot the right one in your PIO Home screen in the Devices tab. Once you're done you can perform several actions in the bottom left corner of VSCode: compile, upload, serial monitor, ...
 
 While uploading a sketch to the Picoclick you have to press and hold the button of it during the complete uploading process. It should automatically reboot and start your code. The button can be released afterwards.
 
@@ -133,5 +133,11 @@ G2 | GND
 An overview of the external pads is given below.
 
 <img src="docs/top_pcb.png" width="450px"></a>
+
+
+## Set charging current
+The Picoclick is build to be used with small Lipo batteries with a capacity of around 20mAh-30mAh. Therefore we set the charging current for this battery to 21mA through the `R_prog` resistor of the charger chip. The value of `R_prog`is 47,5kOhm. With the equation `I_charge = 1000V / R_prog` the charging current can be set individually (R_prog in kOhm). The resistor to set this current is marked in the image below.
+
+<img src="docs/r_prog.png" width="450px"></a>
 
 Have fun! :)
