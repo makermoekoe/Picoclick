@@ -18,7 +18,6 @@
 
 const char* ssid = "XXX";
 const char* password = "XXX";
-const char* mqtt_server = "192.168.2.103";
 const uint8_t bssid[6] = {0x80, 0x71, 0x7A, 0x3F, 0x8B, 0x63}; //put your access points bssid here
 const int wifi_channel = 9; //set the channel in your access points settings
 
@@ -146,7 +145,7 @@ void setup() {
   pinMode(latch, OUTPUT);
   digitalWrite(latch, HIGH);
 
-  pinMode(status_mcp, INPUT_PULLUP); //read charging status
+  pinMode(status_mcp, INPUT_PULLUP);
 
   pinMode(button, INPUT);
   state = digitalRead(button);
