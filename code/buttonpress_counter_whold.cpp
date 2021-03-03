@@ -1,17 +1,19 @@
 /**
  * read button as interrupt for the Picoclick v2.2
- * 
- * This sketch counts button presses and flashes the LEDs as often as the button was pressed.
- * For interrupt use of ESP8266, ESP8285 and ESP32 you have to call: #define ISR_PREFIX ICACHE_RAM_ATTR 
+ *
+ * This sketch counts button presses and flashes the LEDs as often as the button was pressed with the color green.
+ * Additionally it visualizes press-and-hold actions by flashing the LEDs in red.
+ * So if the button was pressed three times and the last one was held, so LEDs will flash three times in red.
+ * For interrupt use of ESP8266, ESP8285 and ESP32 you have to call: #define ISR_PREFIX ICACHE_RAM_ATTR
  * https://github.com/platformio/platform-espressif8266/issues/160
- * 
+ *
  * The Picoclick can power itself by holding the latch pin high.
  * Pulling the latch to ground will switch it off.
- * 
+ *
  * Use WiFi.mode(WIFI_OFF) & WiFi.forceSleepBegin() in the setup for power saving when you don't wanna use WiFi.
- * 
- * 12.12.2020 by @maker.moekoe (Moritz König)
- * 
+ *
+ * 02.03.2021 by @maker.moekoe (Moritz König)
+ *
  */
 
 #include <Arduino.h>
@@ -51,7 +53,7 @@ void setup() {
   pinMode(button, INPUT);
   attachInterrupt(digitalPinToInterrupt(button), handleInterrupt, FALLING);
 
-  pinMode(status_mcp, INPUT_PULLUP); 
+  pinMode(status_mcp, INPUT_PULLUP);
 
   FastLED.addLeds<WS2812B, 14, GRB>(leds, NUM_LEDS);
   FastLED.setBrightness(200);
@@ -61,7 +63,7 @@ void setup() {
 }
 
 void loop() {
-  
+
   if(digitalRead(button)){
     unsigned long t = millis();
     while(digitalRead(button) && interruptCounter < 10){
@@ -72,7 +74,7 @@ void loop() {
       }
     }
   }
-  
+
   if(millis() > t_press + 500) {
     if(interruptCounter >= 10) {
       longpress = true;
