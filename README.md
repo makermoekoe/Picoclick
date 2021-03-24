@@ -18,6 +18,8 @@ Here are some specs of the Picoclick:
 - A 30mAh (9x9x3mm pouch cell) battery is enough to reaches over 350 clicks.
 - Ultra low stand-by current
 
+The Picoclick is still available to buy [here](https://hhtronik.com/product/picoclick-v2-2-by-maker-moekoe/).
+
 <img src="docs/pico_back.JPG" width="450px"></a>
 
 <img src="docs/pico_front.JPG" width="450px"></a>
